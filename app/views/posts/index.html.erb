@@ -13,7 +13,7 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr class="my_row">
-        <td></td>
+        <td><%= image_tag((post.universal_picture_link), :class => "preview_image") %></td>
         <td><%= auto_link(post.title) %>
             <br><%=post.body %>
             <br>by <%= post.user.name %></td>

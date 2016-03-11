@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    quick_image
+    
   end
 
   # GET /posts/new
@@ -70,13 +70,11 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body, :user_id)
+      params.require(:post).permit(:title, :body, :user_id, :universal_link)
     end
 
     def quick_image
-      @post = Post.find(params[:id])
-      @url = Domainatrix.parse(@post.title)
-      @object = LinkThumbnailer.generate(@url.url).favicon
+     
     end
 
 end
