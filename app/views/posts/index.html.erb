@@ -2,7 +2,7 @@
 
 <h1>Listing Posts</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
 
@@ -14,9 +14,11 @@
     <% @posts.each do |post| %>
       <tr class="my_row">
         <td><%= image_tag((post.universal_picture_link), :class => "preview_image") %></td>
-        <td><%= auto_link(post.title) %>
+        
+        <td><%= link_to post.title, post.universal_link %>
             <br><%=post.body %>
             <br>by <%= post.user.name %></td>
+        
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
